@@ -1,0 +1,31 @@
+.input-block{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  position: relative;
+  label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  span{
+    font-size: 12px;
+    color: red;
+
+  }
+  .showPass{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    right: 15px;
+    top: 38px;
+    cursor: pointer;
+  }
+
+}
+.input{
+  padding: 10px;
+}

@@ -1,0 +1,28 @@
+@import '../variables.scss';
+.login{
+
+}
+.login-card{
+  padding: 24px;
+  color: $black;
+  border-radius: 10px;
+  background-color: $white;
+  max-width: 400px;
+  width: 100%;
+  gap: 24px;
+  p {
+    text-align: center;
+  }
+  .login-card-header{
+    gap: 10px;
+
+    span{
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  .submit{
+    height: 40px;
+    border-radius: 5px;
+  }
+}

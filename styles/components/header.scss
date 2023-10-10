@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+header{
+  background-color: $white;
+  padding: 20px;
+  .locale-switcher{
+    gap: 10px;
+  }
+  .locale{
+    padding: 7px;
+    background-color: $black;
+    border-radius: 2px;
+    color: $white;
+    text-decoration: none;
+    &.active{
+      background-color: $white;
+      color: $black;
+      border: 1px solid $black;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "action": {
+    "log_in": "Log in"
+  },
+  "form": {
+    "welcome": "Hello, please enter your email and password to continue",
+    "email": "Email",
+    "password": "Password",
+    "enter_email": "Enter the email",
+    "enter_password": "Enter the password",
+    "submit": "Submit",
+    "required": "This field is required"
+  }
+}
