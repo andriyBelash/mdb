@@ -1,16 +1,13 @@
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
+import { Locale } from '@/i18n-config'
 
-export default async function Home({
-  params: { lang }
+export default async function IndexPage({
+  params: { lang },
 }: {
   params: { lang: Locale }
 }) {
 
-
   return (
-    <section className='py-24'>
-
-    </section>
+    <div>
+    </div>
   )
 }

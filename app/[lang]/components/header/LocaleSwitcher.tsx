@@ -1,13 +1,14 @@
 'use client'
 
+import { usePathname, useParams } from 'next/navigation'
+import { i18n } from '@/i18n-config'
+
 import Link from 'next/link'
-//@ts-ignore
-import { usePathname } from 'next/navigation'
 
-import { i18n } from '@/i18n.config'
-
-export default function LocaleSwitcher() {
+const LocaleSwitcher = () => {
   const pathName = usePathname()
+
+  const { lang } = useParams()
 
   const redirectedPathName = (locale: string) => {
     if (!pathName) return '/'
@@ -15,21 +16,17 @@ export default function LocaleSwitcher() {
     segments[1] = locale
     return segments.join('/')
   }
-
   return (
-    <ul className='flex locale-switcher'>
-      {i18n.locales.map(locale => {
+    <ul className='locale-switcher'>
+      {i18n.locales.map((locale) => {
         return (
-          <li key={locale}>
-            <Link
-              href={redirectedPathName(locale)}
-              className={`locale ${pathName.includes(locale) ? 'active' : ''}`}
-            >
-              {locale}
-            </Link>
+          <li className={`${lang === locale ? 'active' : ''}`} key={locale}>
+            <Link href={redirectedPathName(locale)}>{locale}</Link>
           </li>
         )
       })}
     </ul>
   )
 }
+
+export default LocaleSwitcher
