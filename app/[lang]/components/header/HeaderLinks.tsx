@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 
-const HeaderLinks = async ({message}: {message: any}) => {
+const HeaderLinks = ({message}: {message: any}) => {
   return (
     <nav className='links'>
       <Link href="#">{message.movies}</Link>

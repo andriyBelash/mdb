@@ -1,0 +1,25 @@
+@import '../variables.scss';
+
+.card-content{
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 36px;
+  @media (max-width: 36px) {
+
+  }
+  .card-content-title{
+    font-size: 26px;
+    color: $white;
+  }
+  .card-content-link{
+    font-size: 20px;
+    color: $white;
+    margin-left: auto;
+  }
+  .card-content-cards{
+    grid-row: 2/3;
+    grid-column: 1/3;
+
+  }
+}

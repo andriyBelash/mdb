@@ -1,5 +1,6 @@
 import { i18n } from '@/i18n-config'
 import AppHeader from './components/Header/AppHeader'
+import MobileAppHeader from './components/Header/MobileAppHeader'
 import { Poppins } from 'next/font/google'
 
 import '@/styles/global.scss'
@@ -27,6 +28,8 @@ export default function Root({
       <body className={poppins.className}>
         <div className='main'>
           <AppHeader lang={params.lang}/>
+          <MobileAppHeader lang={params.lang}/>
+
           {children}
         </div>
       </body>
