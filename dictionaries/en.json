@@ -4,5 +4,11 @@
     "tv_show" : "TV Show",
     "person"  : "Person",
     "sign_in" : "Sign in"
+  },
+  "page" : {
+    "popular_movies": "Popular movies",
+    "popular_series": "Popular series",
+    "popular_people": "Popular people",
+    "view_more": "View more"
   }
 }
