@@ -3,12 +3,17 @@
     "movies"  : "Movies",
     "tv_show" : "TV Show",
     "person"  : "Person",
-    "sign_in" : "Sign in"
+    "sign_in" : "Sign in",
+    "enter"   : "Enter your login details",
+    "login"   : "Login",
+    "password": "Password"
+
   },
   "page" : {
     "popular_movies": "Popular movies",
     "popular_series": "Popular series",
     "popular_people": "Popular people",
-    "view_more": "View more"
+    "view_more": "View more",
+    "now_in_rental": "Now in rental"
   }
 }

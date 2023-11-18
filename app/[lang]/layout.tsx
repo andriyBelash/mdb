@@ -1,7 +1,11 @@
-import { i18n } from '@/i18n-config'
-import AppHeader from './components/Header/AppHeader'
-import MobileAppHeader from './components/Header/MobileAppHeader'
+import { i18n }    from '@/i18n-config'
 import { Poppins } from 'next/font/google'
+
+import { useProfileStore } from '@/store/profile'
+
+import AppHeader       from '@/components/Header/AppHeader'
+import MobileAppHeader from '../../components/Header/MobileAppHeader'
+
 
 import '@/styles/global.scss'
 
@@ -16,19 +20,21 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
-export default function Root({
+export default async function Root({
   children,
   params,
 }: {
   children: React.ReactNode
   params: { lang: 'en' | 'en' }
 }) {
+  const user = await useProfileStore.getState().getProfile();
+
   return (
     <html lang={params.lang}>
       <body className={poppins.className}>
         <div className='main'>
-          <AppHeader lang={params.lang}/>
-          <MobileAppHeader lang={params.lang}/>
+          <AppHeader user={user} lang={params.lang}/>
+          <MobileAppHeader user={user} lang={params.lang}/>
 
           {children}
         </div>

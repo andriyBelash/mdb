@@ -1,11 +1,22 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link  from 'next/link'
+
+import { Suspense }   from 'react'
+
 import LocaleSwitcher from './LocaleSwitcher'
 import HeaderLinks    from './HeaderLinks'
 import UserBlock      from './UserBlock'
-const MobileHeaderContainer = ({ message } : { message: any }) => {
+
+import type { IProfile } from '@/types/profile'
+
+type PropsType = {
+  message: any,
+  user: IProfile | undefined
+}
+
+const MobileHeaderContainer = ({ message, user } : PropsType) => {
   const [open, setOpen] = useState<boolean>(false)
 
   return (
@@ -28,7 +39,9 @@ const MobileHeaderContainer = ({ message } : { message: any }) => {
         </div>
         <div className={`mb-header-hidden ${open ? 'open' : ''}`}>
           <HeaderLinks message={message} />
-          <UserBlock message={message} />
+          <Suspense fallback={<p>Loading feed...</p>}>
+            <UserBlock user={user} message={message}/>
+          </Suspense>
           <LocaleSwitcher/>
         </div>
       </>

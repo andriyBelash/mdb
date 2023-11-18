@@ -3,12 +3,18 @@ import '@/styles/components/header.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import type { IProfile } from '@/types/profile'
+
 import LocaleSwitcher from './LocaleSwitcher'
 import HeaderLinks    from './HeaderLinks'
 import UserBlock      from './UserBlock'
-import { getDictionary } from '../../../../get-dictionary'
+import { Suspense }   from 'react'
 
-const header = async ({ lang }: { lang: 'uk'| 'en' }) => {
+import { getDictionary }   from '@/get-dictionary'
+
+type PropsType = { lang: 'uk'| 'en', user: IProfile | undefined }
+
+const header = async ({ lang, user }: PropsType) => {
   const { header } = await getDictionary(lang)
 
   return (
@@ -24,7 +30,9 @@ const header = async ({ lang }: { lang: 'uk'| 'en' }) => {
         </Link>
         <HeaderLinks message={header}/>
         <div className='header-flex-end'>
-          <UserBlock message={header}/>
+          <Suspense fallback={<p>Loading feed...</p>}>
+            <UserBlock user={user} message={header}/>
+          </Suspense>
           <LocaleSwitcher/>
         </div>
       </div>
