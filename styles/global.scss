@@ -71,21 +71,21 @@ a{
   overflow: hidden;
 }
 .media-card{
-  min-width: 250px;
-  height: 300px;
+  min-width: 300px;
+  height: 350px;
   border-radius: 12px;
   background: rgba(32, 40, 62, 0.80);
   backdrop-filter: blur(40px);
   padding: 8px 8px 16px 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   user-select: none;
+  gap: 12px;
 
 }
 .media-card-image{
   width: 100%;
-  height: 90%;
+  min-height: 85%;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -116,7 +116,9 @@ a{
   letter-spacing: 0.32px;
   color: $white;
   user-select: none;
-
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .input{

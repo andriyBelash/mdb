@@ -31,7 +31,7 @@ export default async function IndexPage({
             <HomeSwiper message={page} movies={moviesPlayerNow}/>
           </Suspense>
 
-        <CardContent type='movies' message={page} title={page.popular_movies} />
+        <CardContent content={popularMovies} type='movies' message={page} title={page.popular_movies} />
         {/* <CardContent message={page} title={page.popular_series} />
         <CardContent message={page} title={page.popular_people} /> */}
       </div>

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 
-const useDraggable = () => {
+const useDraggable = (target: string) => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const [isDown, setIsDown]         = useState(false);
@@ -45,9 +45,6 @@ const useDraggable = () => {
     setLeft(position);
   };
 
-  useEffect(() => {
-    changeProgressWidth();
-  }, []);
 
   const memoizedFunctions = useMemo(
     () => ({
@@ -59,9 +56,20 @@ const useDraggable = () => {
     [handleMouseDown, handleMouseLeave, handleMouseUp, handleMouseMove]
   );
 
+  useEffect(() => {
+    changeProgressWidth();
+    return () => {
+      // Reset scroll position when component unmounts
+      if (sliderRef.current) {
+        (sliderRef.current as HTMLDivElement).scrollLeft = 0;
+      }
+    };
+  }, []);
+
   return {
     sliderRef,
     isDown,
+    changeProgressWidth,
     ...memoizedFunctions,
     cursorStyle: isDown ? 'grabbing' : 'grab',
     progressStyle: { width: `${width}%`, transform: `translateX(${left}%)` },

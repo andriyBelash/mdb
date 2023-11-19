@@ -9,7 +9,6 @@ const page = ({ params: { lang, id } }: Params ) => {
 
   const profile = useProfileStore.getState().profile
 
-  console.log(profile)
 
   return (
     <div>{lang}, {id} </div>

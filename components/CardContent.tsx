@@ -1,27 +1,38 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import MediaCard from '@/components/MediaCard'
+import { useEffect } from 'react'
 
 import useDraggable from '@/utils/hook/useDraggable'
+
+import type { IMovies } from '@/types/films'
 
 type PropType = {
   message: any,
   title: string,
-  type: string
+  type: string,
+  content: IMovies
 }
 
-const CardContent = ({ message, title, type }: PropType) => {
+const CardContent = ({ message, title, type, content }: PropType) => {
+  const list = content.results
   const {
     sliderRef,
-    isDown,
     handleMouseDown,
     handleMouseLeave,
     handleMouseUp,
     handleMouseMove,
     cursorStyle,
+    changeProgressWidth,
     progressStyle,
-  } = useDraggable();
+  } = useDraggable(`#content-${type}`);
+
+  useEffect(() => {
+    if(sliderRef.current) {
+      (sliderRef.current as HTMLDivElement).scrollLeft = 0
+      changeProgressWidth()
+    }
+  }, [])
 
   return (
     <section className='card-content'>
@@ -31,6 +42,7 @@ const CardContent = ({ message, title, type }: PropType) => {
       </div>
       <div
         ref={sliderRef}
+        id={`content-${type}`}
         className='card-content-cards'
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
@@ -38,14 +50,9 @@ const CardContent = ({ message, title, type }: PropType) => {
         onMouseMove={handleMouseMove}
         style={{cursor : cursorStyle}}
       >
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
+        { list.map(item => (
+          <MediaCard type={'movie'} item={item} key={item.id}/>
+        )) }
       </div>
       <div className='grab-progress'>
         <div className='grab-progress-line' style={progressStyle}></div>

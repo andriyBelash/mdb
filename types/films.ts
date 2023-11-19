@@ -2,7 +2,7 @@
 
 export interface IMovies {
   page: number
-  results: Result[]
+  results: IMovieResult[]
   total_pages: number
   total_results: number
 }
@@ -16,7 +16,7 @@ export interface Dates {
   minimum: string
 }
 
-export interface Result {
+export interface IMovieResult {
   adult: boolean
   backdrop_path: string
   genre_ids: number[]
