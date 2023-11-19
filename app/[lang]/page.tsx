@@ -7,7 +7,8 @@ import CardContent from '@/components/CardContent'
 // api called
 
 import { getMoviesPlayingNow, getMoviesPopular } from '@/utils/api/films'
-
+import { getPopularTvShow } from '@/utils/api/tvShow'
+import { getPopularPerson } from '@/utils/api/person'
 import '@/styles/pages/home.scss'
 
 import { Suspense }   from 'react'
@@ -21,19 +22,22 @@ export default async function IndexPage({
 
   const { page } = await getDictionary(lang)
 
-  const moviesPlayerNow = await getMoviesPlayingNow(lang)
-  const popularMovies   = await getMoviesPopular(lang)
+  const [moviesPlayerNow, popularMovies, popularTvShow, popularPerson] = await Promise.all([
+    getMoviesPlayingNow(lang),
+    getMoviesPopular(lang),
+    getPopularTvShow(lang),
+    getPopularPerson(lang)
+  ])
 
   return (
     <div className='page'>
       <div className='container home'>
-          <Suspense fallback={<p>Loading feed...</p>}>
-            <HomeSwiper message={page} movies={moviesPlayerNow}/>
-          </Suspense>
-
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <HomeSwiper message={page} movies={moviesPlayerNow}/>
+        </Suspense>
         <CardContent content={popularMovies} type='movies' message={page} title={page.popular_movies} />
-        {/* <CardContent message={page} title={page.popular_series} />
-        <CardContent message={page} title={page.popular_people} /> */}
+        <CardContent content={popularTvShow} type='tv-show' message={page} title={page.popular_series} />
+        <CardContent content={popularPerson} type='person' message={page} title={page.popular_people} />
       </div>
     </div>
   )

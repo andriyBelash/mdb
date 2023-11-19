@@ -141,3 +141,27 @@ a{
   font-size: 26px;
   color: $white;
 }
+
+.title-block{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+  .page-title{
+    color: $white;
+    font-size: 44px;
+    @media (max-width: $md) {
+      font-size: 32px;
+    }
+  }
+  .page-subtitle{
+    font-size: 24px;
+    color: $white;
+    opacity: 0.8;
+    text-align: center;
+  }
+}
+
+.page-content{
+  margin-top: 36px;
+}

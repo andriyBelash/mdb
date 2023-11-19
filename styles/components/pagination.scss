@@ -1,0 +1,68 @@
+@import '../variables.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  justify-content: center;
+  color: $white;
+
+}
+
+.btn {
+  border: 1px solid $primary;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  @media (max-width: $md) {
+    display: none;
+  }
+}
+
+.btn-icon {
+  min-width: 24px;
+  height: 24px;
+  stroke: $primary;
+}
+
+.btn:hover {
+  background-color: $primary;
+}
+
+.btn:hover .btn-icon {
+  stroke: #fff;
+}
+
+.page-link:link,
+.page-link:visited {
+  text-decoration: none;
+  color: $white;
+  font-size: 18px;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link.page-link--current {
+  background-color: $primary;
+  color: #fff;
+}
+.page-link{
+  display: inline-flex;
+  min-width: 36px;
+}
+.dots {
+  color: $white;
+}

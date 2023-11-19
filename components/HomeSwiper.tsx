@@ -1,9 +1,10 @@
 'use client'
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import Image from 'next/image';
+
 import 'swiper/css';
 import '@/styles/components/home-swiper.scss'
-
 
 import Link   from 'next/link';
 
@@ -17,10 +18,10 @@ type PropType = {
 }
 
 const HomeSwiper = ({ movies, message }: PropType) => {
-  console.log(movies)
   return (
     <>
       <h2 className='title home-swiper-title'>{message.now_in_rental}: {movies.dates.minimum} - {movies.dates.maximum}</h2>
+
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
@@ -38,8 +39,11 @@ const HomeSwiper = ({ movies, message }: PropType) => {
           { movies.results.map((movie, index) => (
             <SwiperSlide key={index} className='swiper-slide'>
                 <Link href={`/movie/${movie.id}`} >
-                  <img src={`${URL_IMAGE}${movie.poster_path}`} />
-
+                  <Image
+                    src={`${URL_IMAGE}${movie.poster_path}`}
+                    fill
+                    alt={movie.title}
+                  />
                 </Link>
             </SwiperSlide>
           ))}

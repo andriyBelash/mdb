@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+.page-tabs{
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: 1px solid;
+  border-color: $white;
+  overflow: auto;
+  @media (max-width: $md) {
+    gap: 12px;
+  }
+  .page-tab{
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid $white;
+    border-radius: 10px 10px 0 0;
+    @media (max-width: $md) {
+      font-size: 14px;
+      padding: 5px 10px;
+    }
+    &.active{
+      border-color: $primary;
+      background-color: $primary;
+    }
+  }
+
+}

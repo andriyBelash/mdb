@@ -1,19 +1,19 @@
 {
   "header": {
-    "movies": "Фільми",
+    "movies"  : "Фільми",
     "tv_show" : "Серіали",
-    "person"  : "Персоналії",
+    "person"  : "Актори",
+    "in_trend": "В тренді",
     "sign_in" : "Увійти",
     "enter"   : "Введіть дані для входу",
     "login"   : "Логін",
-    "password": "Пароль"
-
-
+    "password": "Пароль",
+    "all"     : "Всі"
   },
   "page" : {
     "popular_movies": "Популярні фільми",
     "popular_series": "Популярні серіали",
-    "popular_people": "Популярні персони",
+    "popular_people": "Популярні актори",
     "view_more": "Переглянути більше",
     "now_in_rental": "Зараз у прокаті"
   }
