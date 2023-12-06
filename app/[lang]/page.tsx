@@ -31,7 +31,7 @@ export default async function IndexPage({
 
   return (
     <div className='page'>
-      <div className='container home'>
+      <div className='wrapper home'>
         <Suspense fallback={<p>Loading feed...</p>}>
           <HomeSwiper message={page} movies={moviesPlayerNow}/>
         </Suspense>

@@ -16,7 +16,7 @@ const MobileAppHeader = async ({ lang, user }: PropsType) => {
 
   return (
     <header className='mb-header'>
-      <div className="mb-header-container container">
+      <div className="mb-header-container wrapper">
         <MobileHeaderContainer user={user} message={header}/>
       </div>
     </header>

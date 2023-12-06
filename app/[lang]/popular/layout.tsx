@@ -26,7 +26,7 @@ const layout = async ({children, params: { lang }}: PropType) => {
 
   return (
     <div className="page">
-      <div className="container">
+      <div className="wrapper">
         <div className="title-block">
           <h1 className="page-title">В тренді</h1>
           <p className="page-subtitle">Тут ви можете переглянути список популярних фільмів, серіалів та персонажів</p>

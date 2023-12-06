@@ -3,7 +3,7 @@ import LoadSmallCard from './LoadSmallCard'
 
 const LoadingSkeleton = () => {
   return (
-    <div className='container loading'>
+    <div className='wrapper loading'>
       <div className='load-row'>
         <LoadSmallCard/>
         <LoadSmallCard/>

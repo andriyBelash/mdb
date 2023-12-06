@@ -19,7 +19,7 @@ const header = async ({ lang, user }: PropsType) => {
 
   return (
     <header className='header'>
-      <div className='header-container container'>
+      <div className='header-container wrapper'>
         <Link href={'/'}>
           <Image
             width={40}

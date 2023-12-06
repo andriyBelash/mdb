@@ -4,7 +4,8 @@ import { Poppins } from 'next/font/google'
 import { useProfileStore } from '@/store/profile'
 
 import AppHeader       from '@/components/Header/AppHeader'
-import MobileAppHeader from '../../components/Header/MobileAppHeader'
+import MobileAppHeader from '@/components/Header/MobileAppHeader'
+import ScrollToTop     from '@/components/Ui/ScrollToTop'
 
 
 import '@/styles/global.scss'
@@ -37,6 +38,7 @@ export default async function Root({
           <MobileAppHeader user={user} lang={params.lang}/>
 
           {children}
+          <ScrollToTop/>
         </div>
       </body>
     </html>

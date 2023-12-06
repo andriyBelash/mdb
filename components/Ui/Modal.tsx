@@ -6,16 +6,31 @@ import '@/styles/components/modal.scss'
 type ModalType = {
   children:  React.ReactNode,
   open: boolean,
+  className?: string,
+  size?: string,
   closeModal: () => void
 }
 
-const Modal = ({ children, open, closeModal }: ModalType) => {
+const Modal = ({ children, open, closeModal, className, size }: ModalType) => {
+
+  const calculateSize = (): string => {
+    switch (size) {
+      case 'sm':
+        return '400px';
+      case 'md':
+        return '700px'
+      case 'lg':
+        return "1000px"
+      default:
+        return '580px'
+    }
+  }
 
   const modal = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : 'visible'
-  }, [open])
+  // useEffect(() => {
+  //   document.body.style.overflow = open ? "hidden" : 'visible'
+  // }, [open])
 
   const close = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     if (open && modal.current && !modal.current.contains(e.target as Node)) {
@@ -25,7 +40,7 @@ const Modal = ({ children, open, closeModal }: ModalType) => {
 
   return (
     <div  onClick={e => close(e)} className={`overlay ${open ? 'open' : ''}`}>
-      <div ref={modal} className='modal'>
+      <div ref={modal} style={{maxWidth: calculateSize()}} className={`${className ? className : ''} modal`}>
         <button onClick={closeModal} className='modal-close'>
           <Image
             alt="close"

@@ -4,7 +4,7 @@
 import '@/styles/components/pagination.scss';
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 type PropsType = {
   pages: number;
   currentPage: number
@@ -16,6 +16,9 @@ type PropsType = {
 const AppPagination = ({ pages, currentPage }: PropsType) => {
   const MAX_VISIBLE_PAGES = 5;
   const pathName = usePathname();
+
+  const params = useSearchParams()
+  const q = Object.fromEntries(params.entries())
 
   const getVisiblePages = (): Array<number | string> => {
     if (pages <= MAX_VISIBLE_PAGES) {
@@ -50,7 +53,7 @@ const AppPagination = ({ pages, currentPage }: PropsType) => {
 
   return (
     <div className="pagination">
-      <Link href={`${pathName}?page=1`} className="btn">
+      <Link href={{ pathname: pathName, query: { ...q,page: currentPage === 1 ? 1 : currentPage - 1 } }} className="btn">
         {/* First Page */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +74,7 @@ const AppPagination = ({ pages, currentPage }: PropsType) => {
         return (
           <React.Fragment key={index}>
             {!isEllipsis && (
-              <Link href={`${pathName}?page=${page}`} className={`page-link ${currentPage === page ? 'page-link--current' : ''}`}>
+              <Link  href={{ pathname: pathName, query: { ...q,page: page } }} className={`page-link ${currentPage === page ? 'page-link--current' : ''}`}>
                 {page}
               </Link>
             )}
@@ -80,7 +83,7 @@ const AppPagination = ({ pages, currentPage }: PropsType) => {
         );
       })}
 
-      <Link href={`${pathName}?page=${pages}`} className="btn">
+      <Link  href={{ pathname: pathName, query: { ...q,page: currentPage === pages ? pages : currentPage + 1 } }}className="btn">
         {/* Last Page */}
         <svg
           xmlns="http://www.w3.org/2000/svg"

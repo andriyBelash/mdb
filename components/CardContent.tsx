@@ -34,7 +34,7 @@ const CardContent = ({ message, title, type, content }: PropType) => {
       (sliderRef.current as HTMLDivElement).scrollLeft = 0
       changeProgressWidth()
     }
-  })
+  }, [])
 
   const getType = (): string => {
     switch (type) {

@@ -15,6 +15,20 @@
     "popular_series": "Популярні серіали",
     "popular_people": "Популярні актори",
     "view_more": "Переглянути більше",
-    "now_in_rental": "Зараз у прокаті"
+    "now_in_rental": "Зараз у прокаті",
+    "show_more_photo": "Показати більше фото"
+  },
+  "person": {
+    "birthday":"День народження",
+    "deathday": "Дата смерті",
+    "gender"  : "Стать",
+    "male"    : "Чоловіча",
+    "female"  : "Жіноча",
+    "homepage": "Домашня сторінка",
+    "known_for_department": "Зайнятість",
+    "place_of_birth": "Місце народження",
+    "cast"    : "Cast",
+    "crew"    : "Crew"
+
   }
 }

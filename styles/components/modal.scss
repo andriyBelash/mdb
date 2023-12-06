@@ -12,6 +12,8 @@
   background-color: #12182970;
   opacity: 0;
   visibility: hidden;
+  padding: 64px 20px;
+
   &.open{
     opacity: 1;
     visibility: visible;

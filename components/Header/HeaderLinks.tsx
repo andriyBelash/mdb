@@ -11,9 +11,8 @@ const HeaderLinks = ({message}: {message: any}) => {
 
   return (
     <nav className='links'>
-      <Link className={segments[2] === 'movies' ? 'active' : ''} href="#">{message.movies}</Link>
+      <Link className={segments[2] === 'movies' ? 'active' : ''} href="/movies">{message.movies}</Link>
       <Link className={segments[2] === 'tv-show' ? 'active' : ''} href="#">{message.tv_show}</Link>
-      <Link className={segments[2] === 'person' ? 'active' : ''} href="#">{message.person}</Link>
       <Link className={segments[2] === 'popular' ? 'active' : ''} href="/popular/all">{message.in_trend}</Link>
     </nav>
   )

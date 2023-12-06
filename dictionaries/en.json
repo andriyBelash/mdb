@@ -12,10 +12,23 @@
 
   },
   "page" : {
-    "popular_movies": "Popular movies",
-    "popular_series": "Popular series",
-    "popular_people": "Popular people",
-    "view_more": "View more",
-    "now_in_rental": "Now in rental"
+    "popular_movies"  : "Popular movies",
+    "popular_series"  : "Popular series",
+    "popular_people"  : "Popular people",
+    "view_more"       : "View more",
+    "now_in_rental"   : "Now in rental",
+    "show_more_photo" : "Show more photos"
+  },
+  "person": {
+    "birthday": "Birthday",
+    "deathday": "Deathday",
+    "gender"  : "Gender",
+    "male"    : "Male",
+    "female"  : "Female",
+    "homepage": "Homepage",
+    "known_for_department" : "Known for department",
+    "place_of_birth": "Place of birth",
+    "cast"    : "Актор",
+    "crew"    : "Інша діяльність"
   }
 }
